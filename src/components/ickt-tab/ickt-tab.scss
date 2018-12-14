@@ -1,0 +1,19 @@
+ickt-tab {
+	flex: 1;
+	text-align: center;
+	padding: 10px 0;
+	img {
+		width: 40%;
+	}
+	h2 {
+		font-size: 16px;
+		margin: 0;
+	}
+	p {
+		font-size: 12px;
+	}
+}
+// 各个页面中，生效的样式，写在外部
+[ickt-tab] {
+	display: flex;
+}

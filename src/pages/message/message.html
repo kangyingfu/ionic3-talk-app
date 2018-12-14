@@ -1,0 +1,33 @@
+<!--
+  Generated template for the MessagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-item no-lines>
+		<ion-avatar item-start>
+			<img menuToggle [src]="'assets/imgs/head/' + userImage" alt="">
+		</ion-avatar>
+		<ion-title>消息</ion-title>
+		<ion-avatar item-end></ion-avatar>
+	</ion-item>
+</ion-header>
+<ion-content>
+	<!-- 搜索框 -->
+	<ion-searchbar placeholder="搜素"></ion-searchbar>
+	<!-- 消息列表 -->
+	<ion-list>
+		<ion-item *ngFor="let item of list" (tap)="showTalkPage(item.userId)">
+			<ion-avatar item-start>
+				<img [src]="'assets/imgs/head/' + item.avatar" alt="">
+			</ion-avatar>
+			<h2>{{item.title}}</h2>
+			<p>{{item.msg}}</p>
+			<div item-end class="message-status">
+				<div>{{item.time}}</div>
+				<ion-badge>{{item.msgNum}}</ion-badge>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

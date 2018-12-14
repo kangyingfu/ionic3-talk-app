@@ -1,0 +1,32 @@
+<!--
+  Generated template for the SpacePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-item no-lines>
+		<ion-avatar item-start>
+			<img menuToggle [src]="'assets/imgs/head/' + userImage" alt="">
+		</ion-avatar>
+		<ion-title>动态</ion-title>
+		<span item-end>更多</span>
+	</ion-item>
+</ion-header>
+<ion-content>
+	<!-- 搜索框 -->
+	<ion-searchbar placeholder="大家都在搜:爱创课堂"></ion-searchbar>
+	<!-- 入口模块 -->
+	<div ickt-tab class="space-tabs">
+		<ickt-tab *ngFor="let item of tabs" [src]="'assets/icon/' + item.src" [title]="item.title"></ickt-tab>
+	</div>
+	<ion-item *ngFor="let item of list" [ngClass]="{
+		'hide-arrow': !item
+	}" detail-push>
+		<!-- 如果item存在 -->
+		<ion-icon *ngIf="item" item-start [name]="item.icon"></ion-icon>
+		<h2 *ngIf="item">{{item.text}}</h2>
+		<!-- 否则渲染空 -->
+		<!-- <ng-template [ngIf]="!item">hello</ng-template> -->
+	</ion-item>
+</ion-content>

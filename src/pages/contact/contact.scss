@@ -1,0 +1,29 @@
+page-contact {
+	.content-ios {
+		background-color: #efefef;
+	}
+	ion-segment {
+		background-color: #fff;
+	}
+	.segment-ios .segment-button {
+		border-color: transparent;
+		border-bottom-width: 2px;
+	}
+	.segment-ios .segment-button.segment-activated {
+		color: #488aff;
+		background-color: #fff;
+		border-bottom-color: #488aff;
+	}
+	.contact-segment-content {
+		background: #fff;
+	}
+	.contact-list-end-text span {
+		font-size: 12px;
+		color: #666;
+		position: relative;
+		top: -2px;
+	}
+	.no-margin {
+		margin-bottom: 0;
+	}
+}

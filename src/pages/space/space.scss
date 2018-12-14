@@ -1,0 +1,19 @@
+page-space {
+	background-color: #efefef;
+	.content-ios {
+		background-color: #efefef;
+	}
+	.hide-arrow.item-ios[detail-push] .item-inner{
+		background-image: none;
+	}
+	.hide-arrow {
+		background-color: #efefef;
+		min-height: 20px;
+		overflow: hidden;
+
+	}
+	.space-tabs {
+		margin-bottom: 30px;
+		background: #fff;
+	}
+}

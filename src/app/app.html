@@ -1,0 +1,27 @@
+<ion-menu [content]="content">
+	<ion-header>
+		<ion-item no-lines>
+			<ion-avatar item-start>
+				<img [src]="'assets/imgs/head/' + userInfo.icon" alt="">
+			</ion-avatar>
+			<h2>{{userInfo.name}}</h2>
+			<p>{{userInfo.info}}</p>
+		</ion-item>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<!-- 循环创建列表 -->
+			<ion-item *ngFor="let item of list" no-lines>
+				<ion-icon [name]="item.icon" item-start></ion-icon>
+				<h2>{{item.title}}</h2>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+	<!-- 定义tabs -->
+	<ion-tabs>
+		<!-- 循环创建tab -->
+		<ion-tab *ngFor="let item of tabs" [tabTitle]="item.title" [tabIcon]="item.icon"></ion-tab>
+	</ion-tabs>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

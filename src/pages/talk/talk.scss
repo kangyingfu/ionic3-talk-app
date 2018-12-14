@@ -1,0 +1,30 @@
+page-talk {
+	.header {
+		background: #fff;
+	}
+	.talk-title {
+		text-align: center;
+	}
+	.content {
+		background: #efefef;
+	}
+	.item-ios {
+		background: transparent;
+	}
+	.talk-content {
+		display: flex;
+		.card {
+			flex: 1;
+		}
+	}
+	.content p {
+		text-align: center;
+		font-size: 12px;
+	}
+	.footer {
+		background: #fff;
+		input {
+			padding: 0 10px;
+		}
+	}
+}

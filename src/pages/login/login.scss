@@ -1,0 +1,24 @@
+page-login {
+	background-image: url(../assets/imgs/bg.png);
+	background-size: cover;
+	background-attachment: fixed;
+	// 所有元素，都不能有背景
+	* {
+		background-color: transparent!important;
+	}
+	.text-input {
+		color: #fff;
+	}
+	.item {
+		span {
+			color: #fff;
+			font-size: 12px;
+		}
+	}
+	.item-inner .item-button {
+	    height: 2.8em;
+        padding: 0 1em;
+        font-size: 1.6rem;
+        background-color: #488aff!important;
+	}
+}

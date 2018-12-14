@@ -1,0 +1,67 @@
+<ion-header>
+	<ion-item no-lines>
+		<ion-avatar item-start>
+			<img menuToggle [src]="'assets/imgs/head/' + userImage" alt="">
+		</ion-avatar>
+		<ion-title>联系人</ion-title>
+		<span item-end>添加</span>
+	</ion-item>
+</ion-header>
+<ion-content>
+	<!-- 搜素框 -->
+	<ion-searchbar placeholder="搜素"></ion-searchbar>
+	<ion-list>
+		<ion-item>
+			<h2>新朋友</h2>
+		</ion-item>
+		<ion-item>
+			<h2>创建群聊</h2>
+		</ion-item>
+	</ion-list>
+	<!-- 选项卡 -->
+	<ion-segment [(ngModel)]="page">
+		<ion-segment-button value="friend">好友</ion-segment-button>
+		<ion-segment-button value="group">群聊</ion-segment-button>
+		<ion-segment-button value="equipment">设备</ion-segment-button>
+		<ion-segment-button value="communication">通讯录</ion-segment-button>
+		<ion-segment-button value="number">公共号</ion-segment-button>
+	</ion-segment>
+	<!-- ngSwtich定义页面 -->
+	<div class="contact-segment-content" [ngSwitch]="page">
+		<div *ngFor="let item of data">
+			<!-- 在ng6中，只能在一个元素上，使用一个结构型指令 -->
+			<ion-list  *ngSwitchCase="item.id">
+				<!-- 创建成员 -->
+				<div *ngFor="let childItem of item.data">
+					<!-- 点击切换子列表的显隐 -->
+					<ion-item (tap)="toggleChildList(childItem)">
+						<!-- icon箭头 -->
+						<ion-icon *ngIf="childItem.children" [name]="childItem.open ? 'arrow-down' : 'arrow-forward'" item-start></ion-icon>
+						<!-- 如果存在头像 -->
+						<ion-avatar *ngIf="childItem.icon" item-start>
+							<img [src]="'assets/imgs/head/' + childItem.icon" alt="">
+						</ion-avatar>
+						<h2>{{childItem.text}}</h2>
+						<!-- 如果有成员数量，要显示 -->
+						<span *ngIf="childItem.member" item-end>{{childItem.member}}</span>
+						<!-- 如果有箭头，要显示 -->
+						<div *ngIf="childItem.endText" item-end class="contact-list-end-text">
+							<span>{{childItem.endText}}</span>
+							<ion-icon name="arrow-forward"></ion-icon>
+						</div>
+					</ion-item>
+					<!-- 遍历子列表 -->
+					<ion-list *ngIf="childItem.children" [hidden]="!childItem.open" class="no-margin">
+						<ion-item *ngFor="let secondChildItem of childItem.children" (tap)="showTalkPage(secondChildItem.userId)">
+							<ion-avatar item-start>
+								<img [src]="'assets/imgs/head/' + secondChildItem.icon" alt="">
+							</ion-avatar>
+							<h2>{{secondChildItem.title}}</h2>
+							<p>{{secondChildItem.state}}</p>
+						</ion-item>
+					</ion-list>
+				</div>
+			</ion-list>
+		</div>
+	</div>
+</ion-content>
